@@ -1,15 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Developer Portfolio</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- JetBrains Mono for code-style font -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="hero">
-    <h1>Hello, I'm Snehanshu</h1>
-    <p>Obsessed with builiding, maths and AI</p>
-  </section>
+    <!-- Left sidebar with profile picture, tagline and contact info -->
+    <div class="sidebar">
+        <div class="profile-container">
+            <!-- Replace with your actual image path -->
+            <img src="your-profile-picture.jpg" alt="Your Name" class="profile-pic">
+            <h1 class="name">Snehanshu_</h1>
+            <p class="tagline">Engineer. Loves Math, ML and World</p>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>snehanshumukh@gmail.com</span>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-user-graduate"></i>
+                <span>Indian Institute of Technology (ISM) Dhanbad</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>India</span>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+    
+    <!-- Main content area -->
+    <div class="main-content">
+        <div class="section">
+            <h2>About_Me</h2>
+            <p>Hello universe! I'm a developer navigating through the vast cosmos of code. My mission is to create digital experiences that are as boundless and awe-inspiring as space itself. With a passion for clean code and innovative solutions, I'm always exploring new technologies and pushing the boundaries of what's possible.</p>
+            <p>When I'm not coding, you might find me stargazing, exploring sci-fi worlds in books and films, or contemplating the mysteries of the universe.</p>
+            
+            <code>console.log("Hello, cosmic traveler!");</code>
+        </div>
+        
+        <div class="section">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">Web Accessibility</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-tile">
+                    <div class="project-content">
+                        <h3 class="project-title">Cosmic Explorer</h3>
+                        <p class="project-description">An interactive web application that visualizes astronomical data from NASA's API, allowing users to explore the wonders of our universe.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">NASA API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-tile">
+                    <div class="project-content">
+                        <h3 class="project-title">Neural Network Visualizer</h3>
+                        <p class="project-description">A tool that helps visualize how neural networks process data, with interactive demonstrations of various AI algorithms.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">D3.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-tile">
+                    <div class="project-content">
+                        <h3 class="project-title">Quantum Code Editor</h3>
+                        <p class="project-description">A futuristic code editor with space-themed syntax highlighting and an integrated terminal for seamless development.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Electron</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-tile">
+                    <div class="project-content">
+                        <h3 class="project-title">Stellar Navigation System</h3>
+                        <p class="project-description">A mobile app that uses AR to overlay constellations and celestial information when pointed at the night sky.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">AR</span>
+                            <span class="project-tag">GPS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Optional: Add some interactive elements for the space theme
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create a subtle floating effect for project tiles
+            const projectTiles = document.querySelectorAll('.project-tile');
+            projectTiles.forEach((tile, index) => {
+                const animDelay = index * 0.1;
+                tile.style.animation = `float 4s ease-in-out ${animDelay}s infinite`;
+            });
+        });
+        
+        // Define the float animation in CSS or add it here
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
