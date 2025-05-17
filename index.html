@@ -12,11 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Mobile menu toggle button - moved outside the sidebar -->
+    <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
     <!-- Left sidebar with profile picture, tagline and contact info -->
     <div class="sidebar">
         <div class="profile-container">
             <!-- Replace with your actual image path -->
-            <img src="your-profile-picture.jpg" alt="Your Name" class="profile-pic">
+            <img src="images/portfolio_dp_sm.png" alt="Cosmic Traveller" class="profile-pic">
             <h1 class="name">Snehanshu_</h1>
             <p class="tagline">Engineer. Loves Math, ML and World</p>
         </div>
@@ -26,7 +33,7 @@
                 <i class="fas fa-envelope"></i>
                 <span>snehanshumukh@gmail.com</span>
             </div>
-            <div class="contact-info">
+            <div class="contact-item">
                 <i class="fas fa-user-graduate"></i>
                 <span>Indian Institute of Technology (ISM) Dhanbad</span>
             </div>
@@ -56,98 +63,67 @@
         <div class="section">
             <h2>Skills</h2>
             <div class="skills-list">
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">C++</span>
                 <span class="skill-tag">Python</span>
+                <span class="skill-tag">CUDA</span>
+                <span class="skill-tag">HF</span>
                 <span class="skill-tag">Git</span>
-                <span class="skill-tag">Responsive Design</span>
-                <span class="skill-tag">UI/UX</span>
-                <span class="skill-tag">Web Accessibility</span>
             </div>
         </div>
         
         <div class="section">
             <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-tile">
-                    <div class="project-content">
-                        <h3 class="project-title">Cosmic Explorer</h3>
-                        <p class="project-description">An interactive web application that visualizes astronomical data from NASA's API, allowing users to explore the wonders of our universe.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">NASA API</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-tile">
-                    <div class="project-content">
-                        <h3 class="project-title">Neural Network Visualizer</h3>
-                        <p class="project-description">A tool that helps visualize how neural networks process data, with interactive demonstrations of various AI algorithms.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">TensorFlow</span>
-                            <span class="project-tag">D3.js</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-tile">
-                    <div class="project-content">
-                        <h3 class="project-title">Quantum Code Editor</h3>
-                        <p class="project-description">A futuristic code editor with space-themed syntax highlighting and an integrated terminal for seamless development.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Electron</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="project-tile">
-                    <div class="project-content">
-                        <h3 class="project-title">Stellar Navigation System</h3>
-                        <p class="project-description">A mobile app that uses AR to overlay constellations and celestial information when pointed at the night sky.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React Native</span>
-                            <span class="project-tag">AR</span>
-                            <span class="project-tag">GPS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Projects will be loaded here via JavaScript -->
+            <div class="projects-grid"></div>
         </div>
     </div>
     
+    <!-- Overlay for sidebar on mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Load projects data -->
+    <script src="js/projects.js"></script>
+    
+    <!-- JavaScript for animations and functionality -->
     <script>
-        // Optional: Add some interactive elements for the space theme
         document.addEventListener('DOMContentLoaded', function() {
-            // Create a subtle floating effect for project tiles
-            const projectTiles = document.querySelectorAll('.project-tile');
-            projectTiles.forEach((tile, index) => {
-                const animDelay = index * 0.1;
-                tile.style.animation = `float 4s ease-in-out ${animDelay}s infinite`;
+            // Load projects
+            loadProjects();
+            
+            // Define the float animation in CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                    100% { transform: translateY(0px); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Mobile sidebar functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const sidebar = document.querySelector('.sidebar');
+            
+            // Toggle sidebar when menu button is clicked
+            menuToggle.addEventListener('click', function() {
+                document.body.classList.toggle('sidebar-open');
+            });
+            
+            // Close sidebar when clicking the overlay
+            sidebarOverlay.addEventListener('click', function() {
+                document.body.classList.remove('sidebar-open');
+            });
+            
+            // Close sidebar when window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    document.body.classList.remove('sidebar-open');
+                }
             });
         });
-        
-        // Define the float animation in CSS or add it here
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0% { transform: translateY(0px); }
-                50% { transform: translateY(-10px); }
-                100% { transform: translateY(0px); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
